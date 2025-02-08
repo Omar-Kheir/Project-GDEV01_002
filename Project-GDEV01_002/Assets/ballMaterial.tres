@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bh0rn73m068sl"]
+
+[ext_resource type="Texture2D" uid="uid://kq15nsu1a1gv" path="res://Assets/soccer_texture_img.png" id="1_owyac"]
+
+[resource]
+albedo_texture = ExtResource("1_owyac")
+uv1_triplanar_sharpness = 150.0

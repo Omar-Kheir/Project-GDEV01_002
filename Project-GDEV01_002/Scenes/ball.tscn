@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv7plbtqjhwk7"]
+
+[ext_resource type="Material" uid="uid://bh0rn73m068sl" path="res://Assets/ballMaterial.tres" id="1_wnlvq"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="1_ywv4o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pilmb"]
+absorbent = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_a7ks3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_psdmh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pktlk"]
+font_size = 35
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Ball" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_pilmb")
+script = ExtResource("1_ywv4o")
+
+[node name="BallMesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_wnlvq")
+mesh = SubResource("SphereMesh_a7ks3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_psdmh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.911
+anchor_right = 0.092
+anchor_bottom = 0.911
+offset_left = -60.984
+offset_top = -24.3281
+offset_right = 62.016
+offset_bottom = 24.6719
+grow_vertical = 0
+text = "Lives: 3"
+label_settings = SubResource("LabelSettings_pktlk")

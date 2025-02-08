@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7ba72tc833x0"]
+
+[ext_resource type="Material" uid="uid://dlv048fpgg8qv" path="res://Assets/wallMaterial.tres" id="1_05ikn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lypu5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6y0uw"]
+size = Vector3(2, 1, 0.6)
+
+[node name="Wall" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 0.5929, 0, 0, 0)
+material_override = ExtResource("1_05ikn")
+mesh = SubResource("BoxMesh_lypu5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6y0uw")

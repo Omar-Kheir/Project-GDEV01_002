@@ -1,0 +1,32 @@
+extends RigidBody3D
+
+var fell = false
+var originalPos:Vector3
+
+func _ready() -> void:
+	updateHUD()
+	originalPos = position
+
+func _process(delta: float) -> void:
+	if position.y < -5 && !fell:
+		fell = true
+		die()
+
+func die():
+	if PlayerStats.lives > 1:
+		PlayerStats.lives -= 1
+		respawn()
+		updateHUD()
+	else:
+		PlayerStats.lives -= 1
+		updateHUD()
+		Eventbus.gameOver.emit()
+
+func respawn():
+	position = originalPos
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
+	fell = false
+
+func updateHUD():
+	$CanvasLayer/Control/Label.text = "Lives: " + str(PlayerStats.lives)

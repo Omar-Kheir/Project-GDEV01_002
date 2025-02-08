@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://jdolf5iuchjj"]
+
+[ext_resource type="Script" path="res://Scripts/plane_rotation.gd" id="1_nqabw"]
+[ext_resource type="Texture2D" uid="uid://7q0gngw8eocp" path="res://Assets/football_stadium_img.jpg" id="1_p52am"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okm6w"]
+albedo_texture = ExtResource("1_p52am")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_k45n5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxjvr"]
+size = Vector3(15, 0.001, 10)
+
+[node name="Stadium" type="StaticBody3D"]
+script = ExtResource("1_nqabw")
+
+[node name="StadiumMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 0.05, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_okm6w")
+mesh = SubResource("BoxMesh_k45n5")
+
+[node name="StadiumCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000499994, 0)
+shape = SubResource("BoxShape3D_nxjvr")
