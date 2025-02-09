@@ -1,6 +1,8 @@
 extends Node
 
 signal gameOver
+signal wallHit
+signal levelPassed
 
 func _ready() -> void:
 	gameOver.connect(endRun)

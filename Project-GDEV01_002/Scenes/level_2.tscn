@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://fal61lekxigu"]
+
+[ext_resource type="Environment" uid="uid://btclyre8doeut" path="res://Assets/environment.tres" id="1_2sxxa"]
+[ext_resource type="PackedScene" uid="uid://jdolf5iuchjj" path="res://Scenes/Stadium.tscn" id="1_drkx4"]
+[ext_resource type="Texture2D" uid="uid://b0dtowgw55433" path="res://Assets/basketball_court_img.jpg" id="2_kfo6n"]
+[ext_resource type="PackedScene" uid="uid://c7ba72tc833x0" path="res://Scenes/wall.tscn" id="2_u2fpr"]
+[ext_resource type="PackedScene" uid="uid://dv7plbtqjhwk7" path="res://Scenes/ball.tscn" id="4_1s5c3"]
+[ext_resource type="Texture2D" uid="uid://jide6q4vnsud" path="res://Assets/basketball_img.png" id="6_3rdh0"]
+[ext_resource type="PackedScene" uid="uid://dn7itoeqodlun" path="res://Scenes/level_finish_basket.tscn" id="6_wwv4x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8fdh"]
+albedo_texture = ExtResource("2_kfo6n")
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yde21"]
+bounce = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b5ks"]
+albedo_texture = ExtResource("6_3rdh0")
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_2sxxa")
+
+[node name="Stadium" parent="." instance=ExtResource("1_drkx4")]
+
+[node name="StadiumMesh" parent="Stadium" index="0"]
+material_override = SubResource("StandardMaterial3D_x8fdh")
+
+[node name="Wall" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 4.5, -2.5)
+
+[node name="Wall8" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 4.5, -0.5)
+
+[node name="Wall5" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, 0, -4.37114e-08, 0, -1, -1.77636e-15, 2.5, 3, -3)
+
+[node name="Wall2" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 2.49895, 1, -2.98622)
+
+[node name="Wall3" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, -2)
+
+[node name="Wall4" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, 0)
+
+[node name="Wall12" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, -2, 2, 1.5)
+
+[node name="Wall13" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, -2, 2, 0)
+
+[node name="Wall14" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, -2, 2, -1.5)
+
+[node name="Wall11" parent="Stadium" instance=ExtResource("2_u2fpr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, 2)
+
+[node name="BasketHoop" parent="Stadium" instance=ExtResource("6_wwv4x")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.75, 0, 0)
+skeleton = NodePath("../..")
+
+[node name="Ball" parent="." instance=ExtResource("4_1s5c3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, 0)
+physics_material_override = SubResource("PhysicsMaterial_yde21")
+
+[node name="BallMesh" parent="Ball" index="0"]
+material_override = SubResource("StandardMaterial3D_1b5ks")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6.5, 6.5)
+
+[editable path="Stadium"]
+[editable path="Ball"]

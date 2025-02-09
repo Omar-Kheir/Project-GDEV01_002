@@ -1,21 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://byrovjldabk3a"]
 
+[ext_resource type="Environment" uid="uid://btclyre8doeut" path="res://Assets/environment.tres" id="1_2xp28"]
 [ext_resource type="PackedScene" uid="uid://jdolf5iuchjj" path="res://Scenes/Stadium.tscn" id="1_a32in"]
 [ext_resource type="PackedScene" uid="uid://dv7plbtqjhwk7" path="res://Scenes/ball.tscn" id="2_5sdlb"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uupbh"]
-sky_horizon_color = Color(0.711373, 0.719745, 0.746029, 1)
-ground_bottom_color = Color(0.460492, 0.424978, 0.434118, 1)
-ground_horizon_color = Color(0.711373, 0.719745, 0.746029, 1)
-
-[sub_resource type="Sky" id="Sky_8d3px"]
-sky_material = SubResource("ProceduralSkyMaterial_uupbh")
-
-[sub_resource type="Environment" id="Environment_0bc0t"]
-background_mode = 2
-sky = SubResource("Sky_8d3px")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://c7ba72tc833x0" path="res://Scenes/wall.tscn" id="2_cuuvi"]
+[ext_resource type="PackedScene" uid="uid://di27uiypmfwpc" path="res://Scenes/level_finish_flag.tscn" id="4_7rvdm"]
 
 [node name="Main" type="Node3D"]
 
@@ -24,12 +13,31 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0bc0t")
+environment = ExtResource("1_2xp28")
 
 [node name="Stadium" parent="." instance=ExtResource("1_a32in")]
 
+[node name="Wall" parent="Stadium" instance=ExtResource("2_cuuvi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 3)
+
+[node name="Wall5" parent="Stadium" instance=ExtResource("2_cuuvi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 0)
+
+[node name="Wall2" parent="Stadium" instance=ExtResource("2_cuuvi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.49895, 0.5, -2.98622)
+
+[node name="Wall3" parent="Stadium" instance=ExtResource("2_cuuvi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, -2)
+
+[node name="Wall4" parent="Stadium" instance=ExtResource("2_cuuvi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, 2)
+
+[node name="LevelFinish" parent="Stadium" instance=ExtResource("4_7rvdm")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -6.5, 0, 0)
+skeleton = NodePath("../..")
+
 [node name="Ball" parent="." instance=ExtResource("2_5sdlb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6.5, 6.5)

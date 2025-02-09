@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn7itoeqodlun"]
+
+[ext_resource type="ArrayMesh" uid="uid://dlnb1ycyos7h6" path="res://Assets/Basket_hoop.obj" id="1_rk6g1"]
+[ext_resource type="Script" path="res://Scripts/level_finish.gd" id="2_3mkt0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jryhe"]
+albedo_color = Color(0.34902, 0.611765, 0.643137, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yp74q"]
+radius = 1.25
+
+[node name="BasketHoop" type="MeshInstance3D"]
+mesh = ExtResource("1_rk6g1")
+surface_material_override/0 = SubResource("StandardMaterial3D_jryhe")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_3mkt0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -0.75)
+shape = SubResource("SphereShape3D_yp74q")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

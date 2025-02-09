@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv7plbtqjhwk7"]
+[gd_scene load_steps=8 format=3 uid="uid://dv7plbtqjhwk7"]
 
-[ext_resource type="Material" uid="uid://bh0rn73m068sl" path="res://Assets/ballMaterial.tres" id="1_wnlvq"]
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="1_ywv4o"]
+[ext_resource type="Texture2D" uid="uid://kq15nsu1a1gv" path="res://Assets/soccer_texture_img.png" id="2_2k8ip"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pilmb"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_apetj"]
+rough = true
 absorbent = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brjo6"]
+albedo_texture = ExtResource("2_2k8ip")
 
 [sub_resource type="SphereMesh" id="SphereMesh_a7ks3"]
 
@@ -16,11 +20,11 @@ outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Ball" type="RigidBody3D"]
-physics_material_override = SubResource("PhysicsMaterial_pilmb")
+physics_material_override = SubResource("PhysicsMaterial_apetj")
 script = ExtResource("1_ywv4o")
 
 [node name="BallMesh" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_wnlvq")
+material_override = SubResource("StandardMaterial3D_brjo6")
 mesh = SubResource("SphereMesh_a7ks3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -35,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1

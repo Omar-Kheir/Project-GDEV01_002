@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3umpim4d1044"]
+
+[ext_resource type="PackedScene" uid="uid://jdolf5iuchjj" path="res://Scenes/Stadium.tscn" id="1_df8um"]
+[ext_resource type="Environment" uid="uid://btclyre8doeut" path="res://Assets/environment.tres" id="1_y0ypb"]
+[ext_resource type="PackedScene" uid="uid://c7ba72tc833x0" path="res://Scenes/wall.tscn" id="2_j3rg6"]
+[ext_resource type="Texture2D" uid="uid://blefhrxbv2qlt" path="res://Assets/tennis_court_img.jpg" id="2_qrak8"]
+[ext_resource type="PackedScene" uid="uid://di27uiypmfwpc" path="res://Scenes/level_finish_flag.tscn" id="3_ncp7r"]
+[ext_resource type="PackedScene" uid="uid://dv7plbtqjhwk7" path="res://Scenes/ball.tscn" id="4_cnehn"]
+[ext_resource type="Texture2D" uid="uid://d0uf8n3awnndx" path="res://Assets/tennis_img.png" id="6_gy25o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i8ox"]
+albedo_texture = ExtResource("2_qrak8")
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2csjt"]
+bounce = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jj0a"]
+albedo_texture = ExtResource("6_gy25o")
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_y0ypb")
+
+[node name="Stadium" parent="." instance=ExtResource("1_df8um")]
+
+[node name="StadiumMesh" parent="Stadium" index="0"]
+material_override = SubResource("StandardMaterial3D_6i8ox")
+
+[node name="Wall" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 3)
+
+[node name="Wall5" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 0)
+
+[node name="Wall2" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.49895, 0.5, -2.98622)
+
+[node name="Wall3" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, -2)
+
+[node name="Wall4" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0.5, 2)
+
+[node name="LevelFinish" parent="Stadium" instance=ExtResource("3_ncp7r")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -6.5, 0, 0)
+skeleton = NodePath("../..")
+
+[node name="Ball" parent="." instance=ExtResource("4_cnehn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, 0)
+physics_material_override = SubResource("PhysicsMaterial_2csjt")
+
+[node name="BallMesh" parent="Ball" index="0"]
+material_override = SubResource("StandardMaterial3D_8jj0a")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6.5, 6.5)
+
+[editable path="Stadium"]
+[editable path="Ball"]

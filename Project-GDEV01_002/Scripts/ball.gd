@@ -6,8 +6,9 @@ var originalPos:Vector3
 func _ready() -> void:
 	updateHUD()
 	originalPos = position
+	Eventbus.wallHit.connect(die)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if position.y < -5 && !fell:
 		fell = true
 		die()
