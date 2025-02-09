@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjojgoi11tp65"]
+[gd_scene load_steps=4 format=3 uid="uid://bjojgoi11tp65"]
 
+[ext_resource type="Texture2D" uid="uid://cf1nfbnhltsfr" path="res://Assets/BG.png" id="1_58wyh"]
 [ext_resource type="Script" path="res://Scripts/restart_button.gd" id="1_ditc8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ch672"]
 font_size = 35
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="EndRunMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +15,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_58wyh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

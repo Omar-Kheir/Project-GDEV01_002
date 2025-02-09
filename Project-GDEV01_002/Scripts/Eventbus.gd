@@ -4,7 +4,9 @@ signal gameOver
 signal wallHit
 signal levelPassed
 
-var levels = ["res://Scenes/level_1.tscn", "res://Scenes/level_2.tscn", "res://Scenes/level_3.tscn"]
+var levels = ["res://Scenes/level_1.tscn", 
+			"res://Scenes/level_2.tscn",
+			"res://Scenes/level_3.tscn"]
 var currentLevel = 0
 
 func _ready() -> void:

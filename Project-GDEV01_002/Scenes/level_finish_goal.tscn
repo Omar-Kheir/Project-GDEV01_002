@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0vd1j27aka5y"]
+
+[ext_resource type="ArrayMesh" uid="uid://d3g8io1oi5hu1" path="res://Assets/soccer_net.obj" id="1_oefsd"]
+[ext_resource type="Script" path="res://Scripts/level_finish.gd" id="2_sonh3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ma41p"]
+size = Vector3(0.75, 1.25, 2)
+
+[node name="goal" type="MeshInstance3D"]
+mesh = ExtResource("1_oefsd")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_sonh3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.875, 0)
+shape = SubResource("BoxShape3D_ma41p")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

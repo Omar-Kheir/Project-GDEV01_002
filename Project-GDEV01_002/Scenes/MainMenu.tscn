@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://nop4udmj40j3"]
+[gd_scene load_steps=4 format=3 uid="uid://nop4udmj40j3"]
 
+[ext_resource type="Texture2D" uid="uid://cf1nfbnhltsfr" path="res://Assets/BG.png" id="1_5w7id"]
 [ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_c0a1v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jspe"]
@@ -14,6 +15,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5w7id")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
