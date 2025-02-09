@@ -39,6 +39,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0
 [node name="Wall5" parent="Stadium" instance=ExtResource("2_j3rg6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 0)
 
+[node name="Wall6" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, 0.5, 0)
+
+[node name="Wall7" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, 0.5, 4)
+
+[node name="Wall8" parent="Stadium" instance=ExtResource("2_j3rg6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, 0.5, -4)
+
 [node name="Wall2" parent="Stadium" instance=ExtResource("2_j3rg6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.49895, 0.5, -2.98622)
 
