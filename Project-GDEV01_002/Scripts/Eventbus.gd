@@ -16,6 +16,7 @@ func _ready() -> void:
 func endRun():
 	get_tree().change_scene_to_file.bind("res://Scenes/EndRunMenu.tscn").call_deferred()
 	PlayerStats.reset()
+	currentLevel = 0
 
 func nextLevel():
 	if currentLevel != 2:
