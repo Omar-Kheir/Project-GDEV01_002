@@ -7,6 +7,7 @@ func _ready() -> void:
 	updateHUD()
 	originalPos = position
 	Eventbus.wallHit.connect(die)
+	$GPUParticles3D.emitting = true
 
 func _process(_delta: float) -> void:
 	if position.y < -5 && !fell:
@@ -14,31 +15,21 @@ func _process(_delta: float) -> void:
 		die()
 
 func die():
-	if PlayerStats.lives > 1: #Respawn
+	if PlayerStats.lives > 1:
 		PlayerStats.lives -= 1
 		respawn()
 		updateHUD()
-	else: #Gameover
+	else:
 		PlayerStats.lives -= 1
 		updateHUD()
-		$BallMesh.set_visible(false)
-		$GameOverTimer.start()
-		
+		Eventbus.gameOver.emit()
 
 func respawn():
-	$BallMesh.set_visible(false)
-	$RespawnTimer.start()
-	
-func _on_timer_timeout() -> void:
-	$BallMesh.set_visible(true)
 	position = originalPos
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	$GPUParticles3D.emitting = true
 	fell = false
-
-func _on_game_over_timer_timeout() -> void:
-	Eventbus.gameOver.emit()
 
 func updateHUD():
 	$CanvasLayer/Control/Label.text = "Lives: " + str(PlayerStats.lives)
