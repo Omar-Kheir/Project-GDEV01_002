@@ -13,6 +13,8 @@ func _process(_delta: float) -> void:
 	if position.y < -5 && !fell:
 		fell = true
 		die()
+	
+	$CanvasLayer/Control/Label2.text = str(Engine.get_frames_per_second())
 
 func die():
 	if PlayerStats.lives > 1:

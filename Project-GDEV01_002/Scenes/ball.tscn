@@ -69,6 +69,19 @@ grow_vertical = 0
 text = "Lives: 3"
 label_settings = SubResource("LabelSettings_pktlk")
 
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.104
+anchor_top = 0.124
+anchor_right = 0.104
+anchor_bottom = 0.124
+offset_left = -19.808
+offset_top = -11.352
+offset_right = 20.192
+offset_bottom = 11.648
+text = "FPS:"
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.17997, 0.983672, 0, -0.983672, 0.17997, 0, 0.0856813, 0)
 material_override = SubResource("StandardMaterial3D_g2b3k")

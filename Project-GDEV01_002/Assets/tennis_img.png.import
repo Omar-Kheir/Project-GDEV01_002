@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0uf8n3awnndx"
 path.s3tc="res://.godot/imported/tennis_img.png-d4dc76dc85ff741c39bb63d4dfa49474.s3tc.ctex"
+path.etc2="res://.godot/imported/tennis_img.png-d4dc76dc85ff741c39bb63d4dfa49474.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/tennis_img.png"
-dest_files=["res://.godot/imported/tennis_img.png-d4dc76dc85ff741c39bb63d4dfa49474.s3tc.ctex"]
+dest_files=["res://.godot/imported/tennis_img.png-d4dc76dc85ff741c39bb63d4dfa49474.s3tc.ctex", "res://.godot/imported/tennis_img.png-d4dc76dc85ff741c39bb63d4dfa49474.etc2.ctex"]
 
 [params]
 

@@ -29,5 +29,6 @@ func _process(delta: float) -> void:
 		rotation.z -= rotationSpeed * delta
 		shouldReturn = false
 
+
 	if shouldReturn:
 		rotation = lerp(rotation, original_rotation, returnSpeed * delta)

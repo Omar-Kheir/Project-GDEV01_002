@@ -1,6 +1,7 @@
 extends Node
 
 signal gameOver
+@warning_ignore("unused_signal")
 signal wallHit
 signal levelPassed
 
