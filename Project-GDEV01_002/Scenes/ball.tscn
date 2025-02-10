@@ -80,12 +80,3 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_iq3vw")
 draw_pass_1 = SubResource("BoxMesh_5grgh")
-
-[node name="RespawnTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="GameOverTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
