@@ -17,7 +17,7 @@ This project covers the following topics:
 - 🌌 **Using GPUParticles3D Node & the Particles System**
 - 🔄 **Advanced Respawn System Implementation**
 - ⏳ **Timers and Their Role in Gameplay Mechanics**
-
+  
 ---
 
 ## 🚀 Get Started
@@ -29,7 +29,7 @@ This project covers the following topics:
 ---
 
 ## 🕒 Estimated Project Completion Time (in class)
-This project took approximately 40 Class Hours to complete.
+This project took approximately 16 Class Hours to complete, after completing its' prerequisite: GDEV01-001 [Check it out here.](https://github.com/Omar-Kheir/Project-GDEV01_001).
 
 ---
 
