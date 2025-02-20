@@ -1,4 +1,4 @@
-# 🎮 Gamedev Campus - GDEV001-002 Stadium Roll Project
+# 🎮 Gamedev Campus - GDEV01-002 Stadium Roll Project
 
 Welcome to the **Stadium Roll Project**! This project is the **second** hands-on experience for students at **Gamedev Campus**, following the foundational **GDEV01** class.
 
